@@ -70,6 +70,33 @@
     text-align: center;
     text-decoration: none;
 }
+.scroll-down{
+    position:absolute;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    animation-name: bounce-2;
+    animation-timing-function: ease;
+    transform-origin: bottom;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.scroll-down-text{
+    font-size: 1em;
+    font-weight: normal;
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+}
+.scroll-down-icon{
+    width: 70%;
+}
+@keyframes bounce-2 {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-50px); }
+    100% { transform: translateY(0); }
+}
 .second-section{
     background-image:  url("assets/the-games-bg.jpg");
     height: 100vh;
