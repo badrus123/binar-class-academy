@@ -1,0 +1,64 @@
+body{
+
+}
+.div-content{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.body-rambu{
+    background-color: yellow;
+    width: 20vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding:2rem;
+    border-radius: 20px;
+}
+.red-lamp{
+    background-color: red;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+.yellow-lamp{
+    background-color: orange;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+.green-lamp{
+    background-color: green;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+.black-lamp{
+    background-color: black;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+.counter-down{
+    background-color: black;
+    width: 20vw;
+    height: 20vh;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.counter-down h1{
+    font-size: 5rem;
+    text-shadow: 1rem;
+    font-weight: bold;
+    letter-spacing: 1rem;
+    color:white
+}
