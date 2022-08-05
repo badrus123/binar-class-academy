@@ -1,0 +1,21 @@
+{
+  "name": "topik-1",
+  "version": "1.0.0",
+  "description": "belajar nodejs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "test index.spec.js"
+  },
+  "author": "badrus shoolehk",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "nodemon": "^2.0.19",
+    "pbkdf2-password": "^1.2.1"
+  }
+}

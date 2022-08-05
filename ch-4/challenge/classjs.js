@@ -86,7 +86,7 @@ class Game {
       this.winner(name, this.comName)
     }, 5000)
   }
-  refresh() {
+  static refresh() {
     document.location.reload()
   }
   play() {
