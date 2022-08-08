@@ -106,7 +106,6 @@ app.get('/login', function (req, res) {
 
 app.post('/login', function (req, res, next) {
   authenticate(req.body.username, req.body.password, function (err, user) {
-    if (err) return next(err)
     if (user) {
       // Regenerate session when signing in
       // to prevent fixation
