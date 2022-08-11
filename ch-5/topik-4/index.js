@@ -1,0 +1,12 @@
+require('dotenv').config()
+const express = require('express')
+const app = express()
+const morgan = require('morgan')
+const router = require('./src/router')
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(morgan('dev'))
+app.use(router)
+app.listen(process.env.PORT, () => {
+  console.log(`server is running on port ${process.env.PORT}`)
+})
