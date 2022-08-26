@@ -2,8 +2,7 @@
 const mongoose = require('mongoose')
 
 //Set up default mongoose connection
-const mongoDB =
-  'mongodb+srv://binar:Fe7pVtZ4QoPv6Esz@binar.rybjgfa.mongodb.net/binar_chat'
+const mongoDB = 'url_db'
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
 
 //Get the default connection
