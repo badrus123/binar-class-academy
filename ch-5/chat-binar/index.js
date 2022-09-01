@@ -12,14 +12,6 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
-    // const dataBody = {
-    //   content: `${msg}`,
-    // }
-
-    // axios.post(
-    //   'https://discord.com/api/webhooks/1001240008813985844/yy2BFoFofGxB8Xbi0TrLUE1HQr4ajdCEitKrPWCElkAmFZMGpuQdRKPOdLi63sxD7AYL',
-    //   dataBody,
-    // )
     io.emit('chat message', msg)
   })
 })
