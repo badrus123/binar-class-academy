@@ -1,40 +1,38 @@
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define(
-    'siswa',
+    'users',
     {
       id: {
         type: DataTypes.UUID,
         allowNull: false,
-        defaultValue: DataTypes.UUIDV4,
+        defaultValue: sequelize.literal('uuid_generate_v4()'),
         primaryKey: true,
       },
-      name: {
-        type: DataTypes.STRING(50),
+      email: {
+        type: DataTypes.STRING(255),
         allowNull: true,
-        defaultValue: 'NULL',
+      },
+      password: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      name: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
       },
       alamat: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(255),
         allowNull: true,
-        defaultValue: 'NULL',
-      },
-      id_sekolah: {
-        type: DataTypes.UUID,
-        allowNull: true,
-        references: {
-          model: 'sekolah',
-          key: 'id',
-        },
       },
     },
     {
       sequelize,
-      tableName: 'siswa',
+      tableName: 'users',
       schema: 'public',
       timestamps: false,
       indexes: [
         {
-          name: 'siswa_pkey',
+          name: 'users_pkey',
           unique: true,
           fields: [{ name: 'id' }],
         },

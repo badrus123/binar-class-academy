@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const auth = require('./auth')
-const sekolah = require('./sekolah')
+const auth = require('./user')
+const attendance = require('./attendance')
 
 router.use(auth)
-router.use(sekolah)
+router.use(attendance)
 
 module.exports = router

@@ -3,7 +3,7 @@ module.exports = {
   USER: 'postgres',
   PASSWORD: 'badrus123',
   PORT: 5433,
-  DB: 'testing',
+  DB: 'sequelize',
   dialect: 'postgres',
   pool: {
     max: 5,
