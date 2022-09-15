@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – Classic editor</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Classic editor</h1>
+    <form action="/artikel" method="post">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Judul</label>
+            <input name="judul" type="text" class="form-control" id="exampleFormControlInput1" placeholder="judul...">
+        </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Kategori</label>
+            <select class="form-select" aria-label="Default select example" name="kategori">
+                <% kategori.forEach(res=>{ %>
+                
+                <option value="<%= res.id %>"><%= res.name %></option>
+                <% })%>
+              </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Artikel</label>
+            <textarea name="content" id="editor">
+            </textarea>
+          </div>
+          <div class="mb-3">
+           <input name="submit" type="submit" value="submit">
+          </div>
+    </form>    
+    <div id="demo"></div>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                const data = editor.getData();
+                document.getElementsByName('artikel')[0].value = data
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+</body>
+</html>
