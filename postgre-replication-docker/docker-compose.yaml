@@ -1,0 +1,48 @@
+version: "3"
+services:
+ pg_master:
+  container_name: postgres_container_master
+  image: badrus123/pg-master
+  build: ./master
+  ports:
+    - 5434:5432
+  volumes:
+   - postgre_data:/var/lib/postgresql/data
+  environment:
+   - POSTGRES_USER=postgres
+   - POSTGRES_PASSWORD=badrus123
+   - POSTGRES_DB=default
+   - PG_REP_USER=replicas
+   - PG_REP_PASSWORD=badrus123
+  networks:
+   default:
+    aliases:
+      - 'pg_cluster'
+ pg_slave:
+  container_name: postgres_container_slave
+  image: badrus123/pg-slave
+  build: ./slave
+  ports:
+    - 5435:5432
+  environment:
+   - POSTGRES_USER=postgres
+   - POSTGRES_PASSWORD=badrus123
+   - POSTGRES_DB=default
+   - PG_REP_USER=replicas
+   - PG_REP_PASSWORD=badrus123
+  networks:
+   default:
+    aliases:
+      - 'pg_cluster'
+ pgadmin:
+   container_name: pgadmin4_container
+   image: dpage/pgadmin4:5.5
+   restart: always
+   environment:
+     PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+     PGADMIN_DEFAULT_PASSWORD: badrus123
+     PGADMIN_LISTEN_PORT: 80
+   ports:
+     - "8080:80"
+volumes:
+  postgre_data:
