@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Landing Website with Games Scissor, Rock, and Papper with Admin Page.">
+    <meta name="keywords"
+        content="Binar Academy, Esa Hadistra, Games, NodeJS, ExpressJS, MongoDB, Mongoose, and other plugins">
+    <meta name="author" content="Esa Hadistra">
+
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <title>Binar C6 - Esa Hadistra || Landing Page</title>
+
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/index.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- HEADER -->
+            <header class="p-0">
+                <nav class="navbar navbar-expand-lg bg-dark bg-opacity-75">
+                    <a class="navbar-brand text-center ms-3 ms-md-5" href="#"><img class="img-fluid"
+                            src="images/logo.png" alt="Logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link px-4" aria-current="page" href="/">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-4" href="#game-feature">FEATURE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-4" href="#sys-req">SYSTEM REQ.</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-4" href="#top-score">TOP SCORE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-4" href="#newsletter">NEWSLETTER</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-4" href="/api/users" target="_blank"><strong>USERS
+                                        API</strong></a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
+                            <% if (user) { %>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <strong>HALO, <%= user.name.toUpperCase() %></strong>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <% if (user.role == 'admin') { %>
+                                    <li><a class="dropdown-item" href="/dashboard/user"><strong>ADMIN</strong></a></li>
+                                    <% } %>
+                                    <li><a class="dropdown-item" href="/games"><strong>GAMES</strong></a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="/setting"><strong>SETTING</strong></a></li>
+                                    <li>
+                                        <form action="/logout" method="POST">
+                                            <button class="dropdown-item" type="submit"><strong>LOGOUT</strong></button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link px-4" href="/sign-up">SIGN UP</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-4" href="/login">LOGIN</a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="header-text">
+                    <div class="header-title">
+                        <h1 class="display-1 fw-bolder">Play Traditional Game</h1>
+                    </div>
+                    <div class="header-subtitle">
+                        <h3 class=" display-5 fw-semibold">Experience new traditional game play</h3>
+                    </div>
+                    <div class="header-button">
+                        <a class="btn btn-warning fs-3 py-2 px-5 gradation-animation btn-play-now" href="/games"><i
+                                class="bi bi-dice-6"></i>&nbsp;
+                            <% if (user) { %>
+                            Play Now
+                            <% } else { %>
+                            Login to Play
+                            <% } %></a>
+                    </div>
+
+                </div>
+                <a href="#game-choice">
+                    <div class="header-caret align-text-bottom bounce-animation ">
+                        <p> THE STORY<br /><i class="bi bi-caret-down"></i></p>
+                    </div>
+                </a>
+            </header>
+
+            <!-- GAME CHOICE -->
+            <section class="game-choice d-flex align-items-center" id="game-choice">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-4 text-center text-md-start">
+                        <h3 class="text-white">What's so special ?</h3>
+                        <h1 class="text-white display-2">THE GAMES</h1>
+                    </div>
+                    <div class="col-10 col-md-6 p-0">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="images/rockpaperstrategy-1600.jpg" class="d-block w-100"
+                                        alt="rock paper stone">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/rockpaperstrategy-1600.jpg" class="d-block w-100"
+                                        alt="rock paper stone">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/rockpaperstrategy-1600.jpg" class="d-block w-100"
+                                        alt="rock paper stone">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GAME FEATURES -->
+            <section class="game-feature d-md-flex justify-content-center flex-column" id="game-feature">
+                <div class="row">
+                    <div class="offset-md-6 col-md-5 col-sm-12 ps-md-5">
+                        <h2 class="text-white text-center text-md-start">What's so special ?</h2>
+                        <h1 class="text-white text-center text-md-start display-2">FEATURES</h1>
+                        <div class="row me-0 mt-5">
+                            <div class="col-2 col-md-1 pt-md-2">
+                                <img src="images/ellipse.svg" class="w-50" alt="Ellipse">
+                            </div>
+                            <div class="col-10 col-md-9">
+                                <h1 class="text-warning">TRADITIONAL GAMES</h1><br>
+                                <h4 class="mb-5 text-white">If you miss your childhood, we provide
+                                    many
+                                    traditional
+                                    games here</h4>
+                            </div>
+                        </div>
+                        <div class="row me-0 mt-5">
+                            <div class="col-2 col-md-1 pt-md-1">
+                                <img src="images/ellipse-outline.svg" class="w-50" alt="Ellipse">
+                            </div>
+                            <div class="col-10 col-md-9">
+                                <h2 class="text-warning">GAME SUIT</h2>
+                            </div>
+                        </div>
+                        <div class="row me-0 mt-5">
+                            <div class="col-2 col-md-1 pt-md-1">
+                                <img src="images/ellipse-outline.svg" class="w-50" alt="Ellipse">
+                            </div>
+                            <div class="col-10 col-md-7">
+                                <h2 class="text-warning">TBD</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SYSTEM REQUIREMENT -->
+            <section class="sys-req d-flex justify-content-center flex-column" id="sys-req">
+                <div class="row">
+                    <div class="col-12 text-center pb-5 pb-md-0">
+                        <h5 class="text-white">Can My Computer Run This Game ?</h5>
+                    </div>
+                    <div class="col-12 offset-md-1 col-md-5">
+                        <h1 class="display-4 fw-semibold text-white pb-5">SYSTEM<br>REQUIREMENTS</h1>
+                        <table class="table table-bordered border-secondary border-opacity-50">
+                            <tr>
+                                <td class="w-25">
+                                    <h4 class="text-warning">OS :</h4><br>
+                                    <h4 class="text-white">
+                                        Windows 7 64-bit only <br>(No OSX support at this time)
+                                    </h4>
+                                </td>
+                                <td class="w-25">
+                                    <h4 class="text-warning">Processor :</h4><br>
+                                    <h4 class="text-white">
+                                        Intel Core 2 Duo @2.4GHz or AMD Athlon X2 @ 2.8GHz
+                                    </h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="text-warning">Memory :</h4><br>
+                                    <h4 class="text-white">
+                                        4 GB RAM
+                                    </h4>
+                                </td>
+                                <td>
+                                    <h4 class="text-warning">Storage :</h4><br>
+                                    <h4 class="text-white">
+                                        8 GB available space
+                                    </h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h4 class="text-warning">Graphics :</h4><br>
+                                    <h4 class="text-white">
+                                        NVIDIA GeForce GTX 660 2GB or <br>AMD Radeon HD 7850 2GB
+                                        DirectX11 (Shader Model S)
+                                    </h4>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TOP SCORES -->
+            <section class="top-score d-flex justify-content-center" id="top-score">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-4 offset-md-2">
+                        <h2 class="display-4 text-white mb-3">TOP SCORES</h2>
+                        <h4 class="text-white mb-3">This top score from various games provided on this
+                            platform</h4>
+                        <button class="btn btn-warning px-5 py-2 fs-5 fw-semibold">See more</button>
+                    </div>
+
+                    <div class="col-12 col-md-6 pt-5">
+                        <div class="col-12 col-md-8">
+                            <div class="card text-white bg-dark mb-3 me-0">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <img class="rounded-5 w-100 top-score-img" src="images/evan-lahti.jpg"
+                                                    alt="Evan Lahti">
+                                            </div>
+                                            <div class="col-7">
+                                                <h5 class="text-warning p-0 m-0">Evan Lahti</h5>
+                                                <p class="text-secondary p-0 m-0">PC Gamer</p>
+
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <img src="images/twitter.svg" alt="Twitter">
+                                            </div>
+                                            <h5 class="pt-3">"One of my gaming highlights of the year."</h5>
+                                            <p class="pt-3 mb-0 text-secondary fs-6">October 18, 2018</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-8 offset-md-2">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <img class="rounded-5 w-100 top-score-img" src="images/jada-griffin.jpg"
+                                                    alt="Evan Lahti">
+                                            </div>
+                                            <div class="col-7">
+                                                <h5 class="text-warning p-0 m-0">Jada Griffin</h5>
+                                                <p class="text-secondary p-0 m-0">Nerdreactor</p>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <img src="images/twitter.svg" alt="Twitter">
+                                            </div>
+                                            <h5 class="pt-3">"The next big thing in the world of streaming and survival
+                                                games."</h5>
+                                            <p class="pt-3 mb-0 text-secondary fs-6">December 21, 2018</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-8">
+                            <div class="card text-white bg-dark mb-3">
+                                <div class="card-body">
+                                    <div class="card-title ">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <img class="rounded-5 w-100 top-score-img"
+                                                    src="images/aaron-williams.jpg" alt="Evan Lahti">
+                                            </div>
+                                            <div class="col-7">
+                                                <h5 class="text-warning p-0 m-0">Aaron William</h5>
+                                                <p class="text-secondary p-0 m-0">Uproxx</p>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <img src="images/twitter.svg" alt="Twitter">
+                                            </div>
+                                            <h5 class="pt-3">"Snoop Dogg Playing The Wildly Entertaining 'SOS' Is
+                                                Ridiculous"
+                                            </h5>
+                                            <p class="pt-3 mb-0 text-secondary fs-6">December 24, 2018</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEWSLETTER -->
+            <section class="newsletter d-flex justify-content-center" id="newsletter">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6 text-center">
+                        <img class="w-50 img-fluid" src="images/skull.jpg" alt="Skull">
+                    </div>
+
+                    <div class="col-12 col-md-5">
+                        <h3 class="text-white">Want to stay in touch?</h3>
+                        <h1 class="text-white">Newsletter Subscribe</h1>
+                        <p class="text-white text-wrap">
+                            In case to start receiving our news, all you have to do is enter your email address.
+                            Everything
+                            else
+                            will be taken care of you. We will send you emails containing information about game. We
+                            don't
+                            spam.
+                        </p>
+                        <div class="row mt-5">
+                            <div class="col-7 col-md-5">
+                                <label for="inputPassword2" class="visually-hidden">Your email address</label>
+                                <input type="password" class="form-control" id="inputPassword2"
+                                    placeholder="Your email address">
+                            </div>
+                            <div class="col-5 col-md-7">
+                                <button type="submit" class="btn btn-warning mb-3">Subscribe now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <section class="bg-black">
+                <div class="row justify-content-center">
+                    <div class="col-10">
+                        <div class="d-flex mb-0">
+                            <ul class="nav justify-content-end text-end pb-4 ms-auto">
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6">Main</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6">About</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6">Game Features</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6">System Requirements</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6">Quotes</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6"><img
+                                            src="images/facebook.svg" alt="Facebook"></a></li>
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6"><img
+                                            src="images/twitter.svg" alt="Twitter"></a></li>
+                                <li class="nav-item"><a href="#" class="nav-link px-4 fs-6"><img src="images/twitch.svg"
+                                            alt="Twitch"></a></li>
+                            </ul>
+                        </div>
+                        <hr class="mt-0 border-secondary">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-10">
+                        <div class="row justify-content-between">
+                            <div class="col-5">
+                                <p> © 2018 Your Games, Inc. All Rights Reserved</p>
+                            </div>
+                            <div class="col-7 text-end">
+                                <ul class="nav justify-content-end text-end pb-4">
+                                    <li class="nav-item"><a href="#" class="nav-link pt-1 fs-vs">PRIVACY POLICY</a>
+                                    <li class="nav-item text-white p-0">
+                                        <p>|</p>
+                                    </li>
+                                    <li class="nav-item"><a href="#" class="nav-link pt-1 fs-vs">TERMS OF
+                                            SERVICES</a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link pt-1 fs-vs">|</a>
+                                    <li class="nav-item"><a href="#" class="nav-link pt-1 fs-vs">CODE OF CONDUCT</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

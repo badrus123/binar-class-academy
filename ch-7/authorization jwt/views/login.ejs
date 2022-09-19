@@ -1,0 +1,27 @@
+<main class="form-signin w-100 m-auto">
+
+    <form method="POST" action="/auth">
+        <img class="mb-4" src="images/logo.png" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <% if (message.length != 0) { %>
+        <div class="alert alert-<%= message.msgType %>" role="alert">
+            <%= message.msg %>
+        </div>
+        <% } %>
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username"
+                onkeypress="return restrictCharacters(this, event, alphaOnly);" required>
+            <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+                required>
+            <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Sign in</button>
+        <p class="text-muted mt-1"><sup><em>Doesn't have any acoount ? <a href="/sign-up">Sign Up</a></em></sup></p>
+        <p class="text-muted my-3"><sup><em><a href="/">Back to home</a></em></sup></p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    </form>
+</main>

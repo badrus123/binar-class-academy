@@ -5,7 +5,7 @@ module.exports = {
   USER: process.env.DB_USER,
   PASSWORD: process.env.DB_PASSWORD,
   PORT: process.env.DB_PORT,
-  DB: 'testing',
+  DB: 'binar',
   dialect: 'postgres',
   pool: {
     max: 5,

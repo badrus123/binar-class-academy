@@ -1,0 +1,231 @@
+* {
+    padding: 0px;
+    margin: 0px;
+
+    font-family: 'Arial';
+    font-style: normal;
+}
+
+header {
+    height: 100vh;
+    width: 100%;
+    background-image:
+        radial-gradient(189.96% 61.18% at 50% 38.82%, rgba(255, 181, 72, 0) 0%, rgba(52, 44, 29, 0.80319) 73.22%, #08090A 99.74%),
+        url('../images/main-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    z-index: 9999 !important;
+}
+
+.navbar-brand>img {
+    width: 4rem;
+}
+
+@media(max-width: 768px) {
+    .navbar-brand>img {
+        width: 3.5rem;
+    }
+
+    .navbar-nav {
+        margin-left: 0px !important;
+    }
+}
+
+.navbar-nav {
+    margin-left: 8rem;
+}
+
+.nav-item>.nav-link {
+    color: white;
+    font-size: large;
+    font-weight: 500;
+}
+
+
+.header-text {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-text>.header-title {
+    z-index: -999;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+    color: white;
+    text-align: center;
+}
+
+.header-text>.header-subtitle {
+    text-align: center;
+    margin-bottom: 5rem;
+    color: white;
+}
+
+.header-text>.header-button {
+    text-align: center;
+}
+
+.header-caret {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    bottom: 0%;
+    text-decoration: none;
+}
+
+.header-caret>p {
+    text-decoration: none;
+    color: wheat;
+}
+
+.btn-play-now {
+    background: linear-gradient(to bottom right, #ffc107, #ffe082, #ffc107, #ffe082, #ffc107);
+    background-size: 200% 200%;
+    border-color: transparent;
+    transition: background-position .5s;
+}
+
+.bounce-animation {
+    animation: bounce-1 2s linear infinite
+}
+
+.gradation-animation {
+    animation: bg-gradation 3s linear infinite
+}
+
+@keyframes bounce-1 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-40px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bg-gradation {
+    0% {
+        background-position: 100% 100%;
+    }
+
+    25% {
+        background-position: 75% 75%;
+    }
+
+    50% {
+        background-position: 50% 50%;
+    }
+
+    75% {
+        background-position: 25% 25%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.session-ready {
+    color: white;
+    font-size: large;
+    font-weight: 500;
+}
+
+/* ============================================================================================================================================================= */
+
+
+
+/* GAME CHOICE */
+.game-choice {
+    height: 100vh;
+    width: 100%;
+    background-image:
+        radial-gradient(100% 45.57% at 50% 48.04%,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(0, 0, 0, 0) 60.63%,
+            rgba(10, 10, 11, 1) 99.74%),
+        url('/images/the-games-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-feature {
+    height: 100vh;
+    width: 100%;
+    background-image:
+        radial-gradient(100% 50.57% at 50% 50.04%,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(0, 0, 0, 0) 60.63%,
+            rgba(10, 10, 11, 1) 99.74%),
+        url('/images/features.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* SYS REQ */
+
+.sys-req {
+    height: 100vh;
+    width: 100%;
+    background-image:
+        radial-gradient(50% 70.57% at 70% 50.04%,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(0, 0, 0, 0) 60.63%,
+            rgba(10, 10, 11, 1) 99.74%),
+        url('/images/requirements.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* TOP SCORES */
+
+.top-score {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    background-image:
+        radial-gradient(10% 70.57% at 50% 50.04%,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(0, 0, 0, 0) 60.63%,
+            rgba(10, 10, 11, 0.6) 99.74%),
+        url('/images/top-score-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.top-score-img {
+    background-image: url('/images/ellipse-orange.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-right: 0.3rem;
+    padding-bottom: 0.4rem;
+}
+
+/* NESLETTER */
+
+.newsletter {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+
+.fs-vs {
+    font-size: 0.9rem !important;
+}

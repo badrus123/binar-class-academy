@@ -1,0 +1,33 @@
+{
+  "name": "binarc5-esa-hadistra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "App.js",
+  "scripts": {
+    "dev": "nodemon App.js",
+    "start": "node App.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.5.2",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "^8.8.0",
+    "sequelize": "^6.21.4",
+    "sequelize-auto": "^0.8.8"
+  }
+}

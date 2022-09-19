@@ -1,0 +1,49 @@
+<div class="mt-5">
+    <% if (message.msgType.length > 0) { %>
+    <div class="alert alert-notif alert-<%= message.msgType %> py-2" id="alert-notif" role="alert">
+        <%= message.msg %>
+    </div>
+    <% } %>
+    <div class="card">
+        <div class="card-header">
+            <h3><strong>Update User</strong></h3>
+        </div>
+        <div class="card-body">
+            <form action="/dashboard/user?_method=PUT" method="post" class="form-horizontal" role="form">
+                <input type="hidden" name="id" value="<%= user.id %>">
+                <div class="mb-3">
+                    <label for="inputUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="inputUsername" value="<%= user.username %>" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="inputName" name="name"
+                        value="<%= user.user_game_biodata.name %>" required placeholder="Enter Name">
+                </div>
+                <div class="mb-3">
+                    <label for="inputRole" class="form-label">Role</label>
+                    <select class="form-select" name="role" id="inputRole">
+                        <option value="player" <%= user.role == 'player' ? 'selected' : '' %>>Player</option>
+                        <option value="admin" <%= user.role == 'admin' ? 'selected' : '' %>>Admin</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="password"
+                        placeholder="Enter Password">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPasswordConfirmation" class="form-label">Password Confirmation</label>
+                    <input type="password" class="form-control" id="inputPasswordConfirmation"
+                        name="passwordConfirmation" placeholder="Enter Password Confirmation">
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary btn-sm"
+                        onclick="return confirm('Sure to submit')">Submit</button>
+                    <a href="/dashboard/user" type="submit" class="btn btn-secondary btn-sm">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

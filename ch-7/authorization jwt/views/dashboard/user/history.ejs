@@ -1,0 +1,46 @@
+<div class="my-5">
+    <div class="card">
+        <div class="card-header">
+            <h3><strong>History of <%= userHistory[0]?.name %> </strong></h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Player Choice</th>
+                            <th scope="col">Com Choice</th>
+                            <th scope="col">Result</th>
+                            <th scope="col" width="20%">Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <% if (userHistory && userHistory.length !== 0) { %>
+
+                        <% userHistory.forEach((history, index) => {%>
+                        <tr>
+                            <th scope="row"><%= index + 1 %></th>
+                            <td><%= history.user_choice %></td>
+                            <td><%= history.com_choice %></td>
+                            <td><span
+                                    class="badge bg-<%= history.result == 'Win' ? 'success' : (history.result == 'Draw' ? 'warning' : 'danger') %>"><%= history.result %></span>
+                            </td>
+                            <td><%= history.playing_at.toLocaleDateString("en-ID", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour: 'numeric', minute: 'numeric',second: 'numeric'}) %>
+                            </td>
+                        </tr>
+                        <%}); %>
+
+                        <% } else { %>
+                        <tr>
+                            <td colspan="99" class="text-center"><strong>No Data</strong></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+
+                <a href="/dashboard/user" type="submit" class="btn btn-secondary btn-sm float-end">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

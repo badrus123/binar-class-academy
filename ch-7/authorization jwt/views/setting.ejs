@@ -1,0 +1,38 @@
+<main class="form-signin w-100 m-auto">
+
+    <form method="POST" action="/setting?_method=PUT">
+        <input type="hidden" name="id" value="<%= user.id %>">
+        <h1 class="h3 mb-3 fw-normal">User Setting</h1>
+
+        <% if (message.length != 0) { %>
+        <div class="alert alert-<%= message.msgType %>" role="alert">
+            <%= message.msg %>
+        </div>
+        <% } %>
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingInputUsername" value="<%= user.username %>" readonly>
+            <label for="floatingInputUsername">Username</label>
+        </div>
+
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingInputName" placeholder="Name" name="name"
+                value="<%= user.name %>">
+            <label for="floatingInputName">Name</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+                autocomplete="off">
+            <label for="floatingPassword">Password</label>
+            <p class="text-muted text-start"><sub><em>* Keep it blank, if you no need to change password</em></sub>
+            </p>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Update</button>
+    </form>
+    <form action="/delete-account" method="POST">
+        <input type="hidden" name="id" value="<%= user.id %>">
+        <button class="w-100 btn btn-lg btn-danger mt-4" type="submit"
+            onclick="return confirm('Sure to delete this account ?')">Delete Account</button>
+    </form>
+    <p class="text-muted my-3"><sup><em><a href="/">Back to home</a></em></sup></p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+</main>

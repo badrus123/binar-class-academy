@@ -1,0 +1,45 @@
+<div class="mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h3><strong>Add User</strong></h3>
+        </div>
+        <div class="card-body">
+            <form action="/dashboard/user" method="post" class="form-horizontal" role="form">
+                <div class="mb-3">
+                    <label for="inputUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="inputUsername"
+                        onkeypress="return restrictCharacters(this, event, alphaOnly);" name="username"
+                        placeholder="Enter username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="inputName" name="name" required
+                        placeholder="Enter Name">
+                </div>
+                <div class="mb-3">
+                    <label for="inputRole" class="form-label">Role</label>
+                    <select class="form-select" name="role" id="inputRole">
+                        <option value="player">Player</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="password"
+                        placeholder="Enter Password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPasswordConfirmation" class="form-label">Password Confirmation</label>
+                    <input type="password" class="form-control" id="inputPasswordConfirmation"
+                        name="passwordConfirmation" placeholder="Enter Password Confirmation" required>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary btn-sm"
+                        onclick="return confirm('Sure to submit')">Submit</button>
+                    <a href="/dashboard/user" type="submit" class="btn btn-secondary btn-sm">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

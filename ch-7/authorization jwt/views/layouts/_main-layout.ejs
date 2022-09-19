@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <title><%= title %> </title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Favicons -->
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="style/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    <div class="container-fluid">
+        <%- body %>
+    </div>
+
+    <script>
+        // BLOCK INPUT STRING
+        /*var digitsOnly = /[1234567890]/g;*/
+        var alphaOnly = /[A-Za-z\.]/g;
+        var integerOnly = /[0-9\.-]/g;
+        var phoneOnly = /[0-9/)\.-\s]/g;
+
+        function restrictCharacters(myfield, e, restrictionType) {
+            if (!e) var e = window.event
+            if (e.keyCode) code = e.keyCode;
+            else if (e.which) code = e.which;
+            var character = String.fromCharCode(code);
+
+            // if they pressed esc... remove focus from field...
+            if (code == 27) {
+                this.blur();
+                return false;
+            }
+
+            // ignore if they are press other keys
+            // strange because code: 39 is the down key AND ' key...
+            // and DEL also equals .
+            if (!e.ctrlKey && code != 9 && code != 8 && code != 36 && code != 37 && code != 38 && (code != 39 || (code ==
+                39 && character == "'")) && code != 40) {
+                if (character.match(restrictionType)) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+        }
+        // return restrictCharacters(this, event, integerOnly);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<div class="mt-5">
+    <% if (message.msgType.length > 0) { %>
+    <div class="alert alert-notif alert-<%= message.msgType %> py-2" id="alert-notif" role="alert">
+        <%= message.msg %>
+    </div>
+    <% } %>
+    <div class="card">
+        <div class="card-header">
+            <h3><strong>Update Biodata - <%= userBiodata.name %> </strong></h3>
+        </div>
+        <div class="card-body">
+            <form action="/dashboard/user-biodata?_method=PUT" method="post" class="form-horizontal" role="form">
+                <input type="hidden" name="user_game_id" value="<%= userBiodata.user_game_id %>" />
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email"
+                        value="<%= userBiodata ? userBiodata.email : '' %>">
+                </div>
+                <div class="mb-3">
+                    <label for="inputUsername" class="form-label">Birthplace</label>
+                    <input type="text" class="form-control" id="inputUsername" name="birthplace"
+                        value="<%= userBiodata ? userBiodata.birthplace : '' %>">
+                </div>
+                <div class="mb-3">
+                    <label for="inputBirthdate" class="form-label">Birthdate</label>
+                    <input type="text" class="form-control datepicker" id="inputBirthdate" name="birthdate"
+                        value="<%= userBiodata ? userBiodata.birthdate : '' %>" autocomplete="off">
+                </div>
+                <div class="mb-3">
+                    <label for="inputAddress" class="form-label">Address</label>
+                    <textarea type="text" class="form-control" id="inputAddress" name="address"
+                        rows="4"><%= userBiodata ? userBiodata.address : '' %></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputNationality" class="form-label d-block">Gender</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="radioMan" value="male"
+                            <%= userBiodata && userBiodata.gender == 'male' ? 'checked' : ''%> required>
+                        <label class="form-check-label" for="radioMan">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="radioWoman" value="female"
+                            <%= userBiodata && userBiodata.gender == 'female' ? 'checked' : ''%>>
+                        <label class="form-check-label" for="radioWoman">Female</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputNationality" class="form-label">Nationality</label>
+                    <input type="text" class="form-control" id="inputNationality" name="nationality"
+                        value="<%= userBiodata ? userBiodata.nationality : '' %>">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPhone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="inputPhone" name="phone"
+                        value="<%= userBiodata ? userBiodata.phone : '' %>">
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary btn-sm"
+                        onclick="return confirm('Sure to submit')">Submit</button>
+                    <a href="/dashboard/user" type="submit" class="btn btn-secondary btn-sm">Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
