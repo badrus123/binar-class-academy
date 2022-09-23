@@ -1,0 +1,14 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "satao.db.elephantsql.com",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "username": "wiqolgnz",
+      "database": "wiqolgnz",
+      "password": "8_uRLr6Z2-q0e4IVObjWwB_G7k7THRFD",
+      "name": "db"
+    }
+  ]
+}

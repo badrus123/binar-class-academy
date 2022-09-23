@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/game.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <a href="/"><img class="logo-game" src="/assets/logo.png" alt="logo"></a>
+        <h2>ROCK PAPER SCISSORS</h2>
+    </header>
+    <div class="root">
+        <div id="player-content" class="content">
+
+        </div>
+        <div style="display: flex;flex-direction:column;justify-content:space-between;align-items:center;">
+            <h1>Room <%= room %></h1>
+            <div id="versus">
+                <h3 class="text-vs">VS</h3>
+            </div>
+            <div class="refresh">
+                <img src="/assets/refresh.png" alt="refresh" onclick="Game.refresh()">
+            </div>
+        </div>
+        <div id="com-content" class="content">
+
+        </div>
+    </div>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        const username = '<%= username %>'
+        const lawan = '<%= lawan %>'
+        const room = '<%= room %>'
+        const socket = io();
+
+        // Join chatroom
+        socket.emit('joinRoom', { username, room });
+
+        // socket.on('chat message', function(msg) {
+        //     console.log(msg)
+        // });
+    </script>
+    <script type="text/javascript" src="/classjs.js"></script>
+</body>
+</html>
