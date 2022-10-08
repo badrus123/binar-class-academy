@@ -1,0 +1,56 @@
+.hero{
+    background-image: url('../../assets/hero.svg');
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.textHero{
+    color: #fff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 83px;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.describeHero{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+.button{
+    background: linear-gradient(194.68deg, #FFB548 11.27%, #F3AF34 90.4%);
+    border-radius: 4px;
+    height: 59.999969482421875px;
+    width: 260.3616943359375px;
+    color: white;
+    display: flex;
+    font-style: bold;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 2rem;
+}
+.button:active {
+    box-shadow: 0 0 10px -1px rgba(0,0,0,0.6);
+}

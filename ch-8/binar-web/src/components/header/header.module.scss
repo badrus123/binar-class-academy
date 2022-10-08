@@ -1,0 +1,33 @@
+.root{
+    height: 90px;
+    background-color:rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo{
+    width: 3%;
+}
+.divLink{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.auth{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+
+}
