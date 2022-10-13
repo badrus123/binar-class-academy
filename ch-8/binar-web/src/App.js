@@ -4,6 +4,7 @@ import Header from './components/header/header'
 import Router from './routes'
 function App() {
   const location = useLocation()
+
   return (
     <>
       {location.pathname !== '/auth' && <Header />}

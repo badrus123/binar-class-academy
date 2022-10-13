@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import style from './room.module.scss'
 export default function Room() {
   const navigate = useNavigate()
+  const [data, setData] = useState([])
+  useEffect(() => {
+    getData()
+  }, [])
+  const getData = async () => {
+    const { data } = await axios.get('http://localhost:3001/room')
+    setData(data.data)
+  }
   const handleRoom = (id) => {
     navigate('/game/' + id)
   }
+
   return (
     <div className={style.root}>
       <h1>Select Room before Join Game</h1>
@@ -17,16 +27,16 @@ export default function Room() {
           <th className={style.thead}>Actions</th>
         </thead>
         <tbody>
-          {[1, 2, 3, 4, 5].map((item, index) => {
+          {data.map((item, index) => {
             return (
               <tr key={index} className={style.trbody}>
-                <th className={style.tbody}>{item}</th>
-                <th className={style.tbody}>Room 1</th>
+                <th className={style.tbody}>{index + 1}</th>
+                <th className={style.tbody}>{item?.nama}</th>
                 <th className={style.tbody}>2/2</th>
                 <th className={style.tbody}>
                   <button
                     className={style.button}
-                    onClick={() => handleRoom(item)}>
+                    onClick={() => handleRoom(item.id)}>
                     Join
                   </button>
                 </th>
