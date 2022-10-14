@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import style from './room.module.scss'
+import WsClient from '../../utils/websocket'
+
 export default function Room() {
   const navigate = useNavigate()
   const [data, setData] = useState([])
+  let wsClient
   useEffect(() => {
-    getData()
+    getFromWs()
   }, [])
-  const getData = async () => {
-    const { data } = await axios.get('http://localhost:3001/room')
-    setData(data.data)
+
+  const getFromWs = () => {
+    wsClient = new WsClient('ws://localhost:3001/game-socket/room')
+    wsClient.connect()
+    wsClient.on('connected', () => {
+      wsClient.on('room', (data) => {
+        setData(data)
+      })
+    })
   }
   const handleRoom = (id) => {
-    navigate('/game/' + id)
+    navigate('/apps/game/' + id)
   }
 
   return (

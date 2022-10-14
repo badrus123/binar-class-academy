@@ -6,32 +6,29 @@ import batu from '../../assets/batu.svg'
 import kertas from '../../assets/kertas.svg'
 import refresh from '../../assets/refresh.svg'
 import axios from 'axios'
-// import { client } from 'websocket'
+import WsClient from '../../utils/websocket'
 
 export default function Game() {
   const { id } = useParams()
   const [data, setData] = useState({})
+  let wsClient
   useEffect(() => {
     getData()
+    getFromWs()
   }, [])
   const getData = async () => {
     const { data } = await axios.get('http://localhost:3001/room/' + id)
     setData(data.data)
   }
-  // const socketUrl = 'ws://localhost:3001/game-socket/game/1'
-  // client.connect(socketUrl)
-
-  // useEffect(() => {
-  //   client.onopen = (msg) => {
-  //     console.log('WebSocket Client Connected')
-  //     console.log(msg)
-  //   }
-  //   client.onmessage = function (e) {
-  //     if (typeof e.data === 'string') {
-  //       console.log("Received: '" + e.data + "'")
-  //     }
-  //   }
-  // }, [client])
+  const getFromWs = () => {
+    wsClient = new WsClient('ws://localhost:3001/game-socket/game/' + id)
+    wsClient.connect()
+    wsClient.on('connected', () => {
+      wsClient.on('room', (data) => {
+        setData(data)
+      })
+    })
+  }
   return (
     <div className={style.root}>
       <h1>Game Room {data.nama}</h1>

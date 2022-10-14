@@ -8,7 +8,7 @@ export default function Hero() {
       <h3 className={style.describeHero}>
         Experience new traditional game play
       </h3>
-      <Link to='/room'>
+      <Link to='/apps/room'>
         <div className={style.button}>Trial</div>
       </Link>
     </div>
