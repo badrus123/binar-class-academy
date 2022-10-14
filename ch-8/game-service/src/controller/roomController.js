@@ -11,6 +11,15 @@ class Room {
     const data = await db.database.room.findAll()
     res.status(200).send({ data: data, message: 'Room was get successfully!' })
   }
+  async findAllWs(ws, req) {
+    const data = await db.database.room.findAll()
+    const result = JSON.stringify({
+      type: 'room',
+      data: data,
+      message: 'Room was get successfully!',
+    })
+    ws.send(result)
+  }
   async findOne(req, res) {
     const data = await db.database.room.findOne({
       where: {

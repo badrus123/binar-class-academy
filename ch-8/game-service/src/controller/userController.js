@@ -40,5 +40,23 @@ class User {
       accessToken: token,
     })
   }
+  async findOne(req, res) {
+    try {
+      const user = await db.database.user.findOne({
+        where: {
+          id: req.user.id,
+        },
+      })
+      res.status(200).send({
+        id: user.id,
+        email: user.email,
+        nama: user.nama,
+      })
+    } catch (error) {
+      res.status(500).send({
+        message: error.message,
+      })
+    }
+  }
 }
 module.exports = new User()
